@@ -2,7 +2,6 @@ package com.telek.telekgdx.tests;
 
 
 import com.badlogic.gdx.*;
-import com.badlogic.gdx.backends.lwjgl.*;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;

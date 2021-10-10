@@ -1,11 +1,12 @@
 
 
+
 apply plugin: 'java-library'
 apply plugin: 'maven'
 
 
 group 'com.github.oziris78'
-version '0.0.1'
+version '0.0.2'
 
 
 def gdxVersion = '1.9.13'
@@ -31,20 +32,18 @@ repositories {
 
 dependencies {
 
-    implementation 'com.github.oziris78:telek-math:v0.4.1'
-
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
 
+    // if I ever need it
+//    implementation 'com.github.oziris78:telek-math:v0.4.1'
 
-    api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion"
+
+    // maybe in the future
+    /*
     api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-
-    /*
     api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
     api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
     implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.5.0'
@@ -54,8 +53,12 @@ dependencies {
     implementation "space.earlygrey:shapedrawer:$shapedrawerVersion"
     */
 
-    testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-    testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    // just to run
+    /*
+    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion"
+    */
 
 }
 
