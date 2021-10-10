@@ -1,18 +1,22 @@
 
+
 apply plugin: 'java-library'
 apply plugin: 'maven'
+
 
 group 'com.github.oziris78'
 version '0.0.1'
 
+
 def gdxVersion = '1.9.13'
-def projectName = 'telekGDX'
-
+def projectName = 'telek-gdx'
 def aiVersion = '1.8.2'
-//def box2DLightsVersion = '1.5'
-//def typingLabelVersion = '1.2.0'
-//def shapedrawerVersion = '2.5.0'
 
+/*
+def box2DLightsVersion = '1.5'
+def typingLabelVersion = '1.2.0'
+def shapedrawerVersion = '2.5.0'
+*/
 
 sourceCompatibility = 1.8 // java 8
 targetCompatibility = 1.8
@@ -21,15 +25,41 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-    maven { url 'https://jitpack.io' }
+    maven { url "https://jitpack.io" }
 }
 
-jar {
-    archiveBaseName.set(projectName)
-    manifest {
-        attributes 'Implementation-Title': projectName, 'Implementation-Version': archiveVersion
-    }
+
+dependencies {
+
+    implementation 'com.github.oziris78:telek-math:v0.4.1'
+
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+
+
+    api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+
+    /*
+    api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
+    api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.5.0'
+    implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.5.0'
+    implementation 'com.github.raeleus:stripe:master-SNAPSHOT'
+    api "com.rafaskoberg.gdx:typing-label:$typingLabelVersion"
+    implementation "space.earlygrey:shapedrawer:$shapedrawerVersion"
+    */
+
+    testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+
 }
+
+
 
 if (JavaVersion.current().isJava8Compatible()) {
     allprojects {
@@ -38,6 +68,8 @@ if (JavaVersion.current().isJava8Compatible()) {
         }
     }
 }
+
+
 if(JavaVersion.current().isJava9Compatible()) {
     allprojects {
         tasks.withType(JavaCompile) {
@@ -47,28 +79,35 @@ if(JavaVersion.current().isJava9Compatible()) {
 }
 
 
-dependencies {
-    implementation 'com.github.oziris78:telek-math:v0.4.1'
-
-    api "com.badlogicgames.gdx:gdx:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-
-//    api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
-//    api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-//    implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.5.0'
-//    implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.5.0'
-//    implementation 'com.github.raeleus:stripe:master-SNAPSHOT'
-//    api "com.rafaskoberg.gdx:typing-label:$typingLabelVersion"
-//    implementation "space.earlygrey:shapedrawer:$shapedrawerVersion"
-
-    api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-    api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-    api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-
-
-    testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-    testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+jar {
+    archiveBaseName.set(projectName)
+    manifest {
+        attributes 'Implementation-Title': projectName, 'Implementation-Version': archiveVersion
+    }
 }
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+
+wrapper {
+    gradleVersion = "6.1.1"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+
