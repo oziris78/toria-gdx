@@ -6,7 +6,7 @@ apply plugin: 'maven'
 
 
 group 'com.github.oziris78'
-version '0.0.4'
+version '0.0.5'
 
 
 def gdxVersion = '1.9.13'
@@ -32,23 +32,23 @@ repositories {
 
 dependencies {
 
-    // if i ever need it
-//    implementation 'com.github.oziris78:telek-math:v0.4.1'
 
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 
 
-    api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-    api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
 
 
 
     // maybe in the future
     /*
+    implementation 'com.github.oziris78:telek-math:v0.4.1'
+
     api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
     api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
     api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
@@ -90,6 +90,8 @@ jar {
 }
 
 
+/*
+THESE SHOULDN'T BE NEEDED
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
@@ -106,6 +108,8 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
+
+ */
 
 
 wrapper {

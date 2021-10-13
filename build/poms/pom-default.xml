@@ -4,17 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.oziris78</groupId>
   <artifactId>telek-gdx</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.5</version>
   <dependencies>
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx</artifactId>
-      <version>1.9.13</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.badlogicgames.gdx</groupId>
-      <artifactId>gdx-box2d</artifactId>
       <version>1.9.13</version>
       <scope>compile</scope>
     </dependency>
@@ -26,21 +20,36 @@
     </dependency>
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
-      <artifactId>gdx-platform</artifactId>
+      <artifactId>gdx-box2d</artifactId>
       <version>1.9.13</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.badlogicgames.gdx</groupId>
+      <artifactId>gdx-platform</artifactId>
+      <version>1.9.13</version>
+      <classifier>natives-desktop</classifier>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx-backend-lwjgl</artifactId>
       <version>1.9.13</version>
-      <scope>compile</scope>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx-box2d-platform</artifactId>
       <version>1.9.13</version>
-      <scope>compile</scope>
+      <classifier>natives-desktop</classifier>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.badlogicgames.gdx</groupId>
+      <artifactId>gdx-freetype-platform</artifactId>
+      <version>1.9.13</version>
+      <classifier>natives-desktop</classifier>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
