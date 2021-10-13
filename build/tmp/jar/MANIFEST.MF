@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Implementation-Title: telek-gdx
-Implementation-Version: 0.0.5
+Implementation-Version: 0.0.6
 

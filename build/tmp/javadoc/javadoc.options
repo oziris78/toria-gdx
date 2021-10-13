@@ -1,10 +1,10 @@
 -Xdoclint:none,-missing '-quiet'
 -classpath 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\libgdxDev\\Projeler_libgdx\\extensions\\p_telekGDX\\telek-gdx\\build\\classes\\java\\main;C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\libgdxDev\\Projeler_libgdx\\extensions\\p_telekGDX\\telek-gdx\\build\\resources\\main;C:\\Users\\oguzh\\.gradle\\caches\\modules-2\\files-2.1\\com.badlogicgames.gdx\\gdx-ai\\1.8.2\\ab75d2ce80ab1b1ce6828a15dc0f417abac4c674\\gdx-ai-1.8.2.jar;C:\\Users\\oguzh\\.gradle\\caches\\modules-2\\files-2.1\\com.badlogicgames.gdx\\gdx-box2d\\1.9.13\\11d01da43038e0b123f7f7187abc762a26e7a7bf\\gdx-box2d-1.9.13.jar;C:\\Users\\oguzh\\.gradle\\caches\\modules-2\\files-2.1\\com.badlogicgames.gdx\\gdx\\1.9.13\\3a246302e97759c7d171678db765cd5521af0cd9\\gdx-1.9.13.jar'
 -d 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\libgdxDev\\Projeler_libgdx\\extensions\\p_telekGDX\\telek-gdx\\build\\docs\\javadoc'
--doctitle 'telek-gdx 0.0.5 API'
+-doctitle 'telek-gdx 0.0.6 API'
 -notimestamp 
 -quiet 
--windowtitle 'telek-gdx 0.0.5 API'
+-windowtitle 'telek-gdx 0.0.6 API'
 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\libgdxDev\\Projeler_libgdx\\extensions\\p_telekGDX\\telek-gdx\\src\\main\\java\\com\\telek\\telekgdx\\ai\\Box2DLocation.java'
 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\libgdxDev\\Projeler_libgdx\\extensions\\p_telekGDX\\telek-gdx\\src\\main\\java\\com\\telek\\telekgdx\\assets\\AssetGroup.java'
 'C:\\Users\\oguzh\\Desktop\\YivlemeVb\\Java\\libgdxDev\\Projeler_libgdx\\extensions\\p_telekGDX\\telek-gdx\\src\\main\\java\\com\\telek\\telekgdx\\assets\\AssetSorter.java'
