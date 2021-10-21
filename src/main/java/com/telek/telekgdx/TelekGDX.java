@@ -2,9 +2,14 @@ package com.telek.telekgdx;
 
 import com.badlogic.gdx.files.*;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.*;
 import com.badlogic.gdx.utils.*;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 
 public class TelekGDX {
@@ -35,6 +40,16 @@ public class TelekGDX {
 
 
     /*  FILES  */
+
+    public static void openFileExplorer(FileHandle startDirectory) throws IOException {
+        if (startDirectory.exists()) {
+            File file = startDirectory.file();
+            Desktop desktop = Desktop.getDesktop();
+            desktop.open(file);
+        } else {
+            throw new IOException("Directory doesn't exist: " + startDirectory.path());
+        }
+    }
 
     public static void writeWarningsToFile(Array<String> warnings, FileHandle file) {
         for (String warn : warnings) file.writeString(warn.replaceAll("(?<!\\[)\\[(?!\\[).*?\\]", "") + "\n", true);
