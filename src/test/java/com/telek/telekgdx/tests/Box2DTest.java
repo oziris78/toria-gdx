@@ -6,10 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Box2D;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -52,9 +49,9 @@ public class Box2DTest extends ApplicationAdapter {
         world = new World(Vector2.Zero, false);
 
 
-        short s = 0;
-        player = BodyFactory.createDynamicBodyAsBox(
-                world, true, 32, 32, 0, 0, 1f, 1f, 1f, 1f, 0f, false, s, s, s, null, false
+        final short s = 0;
+        player = BodyFactory.createBodyAsBox(
+                world, BodyDef.BodyType.DynamicBody, true, 32, 32, 0, 0, 1f, 1f, 1f, 1f, 0f, false, s, s, s, null, false
         );
 
 
