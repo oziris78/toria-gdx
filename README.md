@@ -14,7 +14,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.oziris78:telek-gdx:v0.0.6'
+    implementation 'com.github.oziris78:telek-gdx:v0.0.8'
 }
 ```
 
