@@ -1,9 +1,13 @@
 package com.telek.telekgdx.box2d;
 
+import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ShortArray;
 
 
 /**
@@ -81,27 +85,26 @@ public class BodyFactory {
     }
 
 
-    public static Body createBodyAsMultipleTriangles(World world, BodyType bodyType, boolean isRotationFixed,
-                                       int bodyWidthInPixels, int bodyHeightInPixels,
-                                       float bodyPosXInPixels, float bodyPosYInPixels,
-                                       float density, float friction, float restitution,
-                                       float linearDampingInPixels, float angleInDegrees,
-                                       boolean useBitsAndGroupIndexes, short categoryBits, short maskBits, short groupIndex,
-                                       Object userDataForBody, boolean isSensor)
+    public static Body createBodyWithPolygonTriangulation(World world, BodyType bodyType, boolean isRotationFixed,
+                                                          int bodyWidthInPixels, int bodyHeightInPixels,
+                                                          float bodyPosXInPixels, float bodyPosYInPixels,
+                                                          float[] vertices, float density, float friction, float restitution,
+                                                          float linearDampingInPixels, float angleInDegrees,
+                                                          boolean useBitsAndGroupIndexes, short categoryBits, short maskBits, short groupIndex,
+                                                          Object userDataForBody, boolean isSensor)
     {
-        //https://gist.github.com/lyze237/a8f641aa9ad1bbdc00dbc6d09c3d4afe
-        // aşağısı değiştirilecek
-
-        // BODY DEFINITION => SHAPE => FIXTURE DEFINITION => BODY
+        // BODY DEFINITION => BODY => ADD FIXTURES
         BodyDef bdef = initBdefAsBox(bodyType, bodyWidthInPixels, bodyHeightInPixels, bodyPosXInPixels, bodyPosYInPixels, angleInDegrees);
-        PolygonShape shape = getBoxShape(bodyWidthInPixels, bodyHeightInPixels);
-        FixtureDef fdef = initFdef(shape, density, friction, restitution, isSensor, useBitsAndGroupIndexes, categoryBits, maskBits, groupIndex);
-        Body body = initBody(world, bdef, fdef, linearDampingInPixels, isRotationFixed, userDataForBody);
 
-        // DISPOSE AND RETURN
-        shape.dispose();
+        // NULL YÜZÜNDEN HATA GELEBİLİR DİYE KONTROL ET
+        Body body = initBody(world, bdef, null, linearDampingInPixels, isRotationFixed, userDataForBody);
+
+        applyPolygonTriangulation(body, vertices, density, friction, restitution,
+                useBitsAndGroupIndexes, categoryBits, maskBits, groupIndex, isSensor);
+
         return body;
     }
+
 
 
 
@@ -115,7 +118,7 @@ public class BodyFactory {
                                  float linearDampingInPixels, boolean isRotationFixed, Object userDataForBody)
     {
         Body body = world.createBody(bdef);
-        body.createFixture(fdef);
+        if(fdef != null) body.createFixture(fdef);
         body.setLinearDamping(linearDampingInPixels);
         body.setFixedRotation(isRotationFixed);
         body.setUserData(userDataForBody);
@@ -128,7 +131,7 @@ public class BodyFactory {
     /*  BODY DEFS  */
     /////////////////
 
-    public static BodyDef initBdefAsBox(BodyType bodyType, int bodyWidthInPixels, int bodyHeightInPixels,
+    private static BodyDef initBdefAsBox(BodyType bodyType, int bodyWidthInPixels, int bodyHeightInPixels,
                                         float bodyPosXInPixels, float bodyPosYInPixels, float angleInDegrees)
     {
         final float PPM = TBox2D.PPM;
@@ -145,7 +148,7 @@ public class BodyFactory {
     }
 
 
-    public static BodyDef initBdefAsCircle(BodyType bodyType, float leftDownPointXInPixels, float leftDownPointYInPixels,
+    private static BodyDef initBdefAsCircle(BodyType bodyType, float leftDownPointXInPixels, float leftDownPointYInPixels,
                                            float radiusInPixels, float angleInDegrees)
     {
         final float PPM = TBox2D.PPM;
@@ -166,7 +169,7 @@ public class BodyFactory {
     /*  FIXTURE DEFS  */
     ////////////////////
 
-    public static FixtureDef initFdef(Shape shape, float density, float friction, float restitution,
+    private static FixtureDef initFdef(Shape shape, float density, float friction, float restitution,
                                       boolean isSensor, boolean useBitsAndGroupIndexes,
                                       short categoryBits, short maskBits, short groupIndex)
     {
@@ -190,7 +193,7 @@ public class BodyFactory {
     /*  SHAPES  */
     //////////////
 
-    public static PolygonShape getBoxShape(int bodyWidthInPixels, int bodyHeightInPixels){
+    private static PolygonShape getBoxShape(int bodyWidthInPixels, int bodyHeightInPixels){
         final float PPM = TBox2D.PPM;
 
         PolygonShape shape = new PolygonShape();
@@ -200,7 +203,7 @@ public class BodyFactory {
     }
 
 
-    public static CircleShape getCircleShape(float radiusInPixels) {
+    private static CircleShape getCircleShape(float radiusInPixels) {
         final float PPM = TBox2D.PPM;
 
         CircleShape shape = new CircleShape();
@@ -210,12 +213,46 @@ public class BodyFactory {
     }
 
 
-    public static ChainShape getChainShape(Vector2[] vertices){
+    private static ChainShape getChainShape(Vector2[] vertices){
         ChainShape shape = new ChainShape();
         shape.createChain(vertices);
 
         return shape;
     }
+
+
+    private static void applyPolygonTriangulation(Body body, float[] vertices, float density, float friction, float restitution,
+                                                  boolean useBitsAndGroupIndexes, short categoryBits, short maskBits, short groupIndex,
+                                                  boolean isSensor)
+    {
+        final Array<Polygon> polygons = new Array<>();
+        Polygon polygon = new Polygon(vertices);
+        ShortArray pointsCoords = new EarClippingTriangulator().computeTriangles(polygon.getVertices());
+
+        for (int i = 0; i < pointsCoords.size; i += 3) {
+            float[] triangles = new float[6];
+
+            for (int j = 0; j < 3; j++) {
+                short point = pointsCoords.get(i + j);
+
+                triangles[j * 2] = polygon.getVertices()[point * 2];
+                triangles[j * 2 + 1] = polygon.getVertices()[point * 2 + 1];
+            }
+
+            polygons.add(new Polygon(triangles));
+
+            PolygonShape polygonShape = new PolygonShape();
+            polygonShape.set(triangles);
+
+            FixtureDef fdef = initFdef(polygonShape, density, friction, restitution, isSensor,
+                    useBitsAndGroupIndexes, categoryBits, maskBits, groupIndex);
+
+            body.createFixture(fdef);
+            polygonShape.dispose();
+        }
+
+    }
+
 
 
 

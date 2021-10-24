@@ -6,7 +6,7 @@ apply plugin: 'maven'
 
 
 group 'com.github.oziris78'
-version '0.0.7'
+version '0.0.8'
 
 
 def projectName = 'telek-gdx'

@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.width = 600;  config.height = 600;
-        new LwjglApplication(new Box2DPolygonTest(), config);
+        new LwjglApplication(new Box2DComplexBodyTest(), config);
     }
 
 }
