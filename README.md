@@ -20,7 +20,9 @@
 <!-- badge end -->
 </p>
 
-LibGDX utility classes that I use.
+Many libGDX utility classes that I use along side my <a href="https://github.com/oziris78/telek-math">math library<a/>.
+
+<br>
 
 ## Importing TelekGDX
 Add these to your build.gradle file
@@ -37,12 +39,21 @@ dependencies {
 }
 ```
 
+<br>
+
+
+## Projects Using TelekGDX
+
+- <a href="https://github.com/oziris78/the2048">A simple 2048 recreation in libgdx </a>
+
+
+<br>
 
 ## How To Use TelekGDX
 
 TelekGDX currently has no wiki, but it has javadocs to guide you.
 
 
-## Some Notes
+### Some Notes
 - I am not thinking about creating a wiki soon...
 - TelekGDX was written by only one person (Oğuzhan Topaloğlu)
