@@ -44,7 +44,6 @@ dependencies {
 
     api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
     api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
-    api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
     implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.5.0'
     implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.5.0'
     implementation 'com.github.raeleus:stripe:master-SNAPSHOT'
@@ -56,6 +55,7 @@ dependencies {
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 
 }
 

@@ -1,5 +1,3 @@
-package com.telek.jtelek.scene2dUtils;
-
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 
