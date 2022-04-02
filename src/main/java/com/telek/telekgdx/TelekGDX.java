@@ -14,7 +14,6 @@ import java.io.IOException;
 
 public class TelekGDX {
 
-
     /*  IMAGES  */
 
     public static TextureRegion getRepeatedTexture(Texture texture, int row, int col) {
