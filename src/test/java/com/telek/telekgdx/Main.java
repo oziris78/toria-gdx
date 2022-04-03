@@ -2,8 +2,7 @@ package com.telek.telekgdx;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.telek.telekgdx.tests.timing.TimerTest;
-
+import com.telek.telekgdx.tests.screensorter.ScreenSorterTest;
 
 
 public class Main {
@@ -13,7 +12,7 @@ public class Main {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.width = 600;
         config.height = 600;
-        new LwjglApplication(new TimerTest(), config);
+        new LwjglApplication(new ScreenSorterTest(), config);
     }
 
 }

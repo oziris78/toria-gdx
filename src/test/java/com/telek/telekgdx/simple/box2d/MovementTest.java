@@ -22,7 +22,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 
-public class PlatformerTest extends ApplicationAdapter {
+public class MovementTest extends ApplicationAdapter {
 
     // box2d consts
     private static final float PPM = 4; // pixels per meter

@@ -9,9 +9,9 @@ import java.util.Objects;
 
 public class ScreenOne implements TScreen {
 
-    private final ScreenSorterGame game;
+    private final ScreenSorterTest game;
 
-    public ScreenOne(final ScreenSorterGame game){
+    public ScreenOne(final ScreenSorterTest game){
         this.game = game;
         System.out.println("constructor of screen one");
     }

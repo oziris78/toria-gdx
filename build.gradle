@@ -25,8 +25,8 @@ repositories {
 
 def gdxVersion = '1.9.13'
 def aiVersion = '1.8.2'
-// def box2DLightsVersion = '1.5'
-// def typingLabelVersion = '1.2.0'
+def typingLabelVersion = '1.2.0'
+def box2DLightsVersion = '1.5'
 // def shapedrawerVersion = '2.5.0'
 
 
@@ -37,26 +37,28 @@ dependencies {
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 
 
-    //  implementation 'com.github.oziris78:telek-math:v0.4.1'
-
     /*  maybe in the future
 
-
     api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-    api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
-    implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.5.0'
-    implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.5.0'
-    implementation 'com.github.raeleus:stripe:master-SNAPSHOT'
-    api "com.rafaskoberg.gdx:typing-label:$typingLabelVersion"
     implementation "space.earlygrey:shapedrawer:$shapedrawerVersion"
     */
 
+    // core libraries
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 
+    // custom libraries
+    testImplementation "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
+    testImplementation "com.rafaskoberg.gdx:typing-label:$typingLabelVersion"
+    testImplementation 'com.github.raeleus:stripe:master-SNAPSHOT'
+    testImplementation 'com.crashinvaders.vfx:gdx-vfx-core:0.5.0'
+    testImplementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.5.0'
+
+    // my libraries
+    testImplementation 'com.github.oziris78:telek-math:v0.8.2'
 }
 
 

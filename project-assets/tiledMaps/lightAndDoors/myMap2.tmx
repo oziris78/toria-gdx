@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="19" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="9">
+ <tileset firstgid="1" source="myTileSet.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="19" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjY2BgYBvFo3gUj+JRPCgxAPS1CHc=
+  </data>
+ </layer>
+ <layer id="2" name="Tile Layer 2" width="19" height="19">
+  <data encoding="base64" compression="zlib">
+   eJxjYmBgYKISVmRgSGAgAIBqHhCjZtSsgTNLlAE1XpUYMOIZJx9ZrRgDcWmCGECsH0fNGjVrMJhFrTIVhAFfkB8+
+  </data>
+ </layer>
+ <objectgroup id="3" name="collisionLayer">
+  <object id="3" x="32" y="256">
+   <polygon points="0,0 544,0 544,320 0,320 0,0"/>
+  </object>
+  <object id="7" x="320" y="32">
+   <polygon points="0,0 256,0 256,192 0,192 0,0"/>
+  </object>
+  <object id="8" x="32" y="32">
+   <polygon points="0,0 256,0 256,192 0,192 0,0"/>
+  </object>
+ </objectgroup>
+</map>

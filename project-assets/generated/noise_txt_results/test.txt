@@ -1,0 +1,70 @@
+x: 0.69656014 , y: 0.89867914  , (canonicalRandom): 0.0
+x: 0.78928024 , y: 0.29674143  , (canonicalRandom): 0.578125
+x: 0.25611746 , y: 0.8199979  , (canonicalRandom): 0.97265625
+x: 0.10962397 , y: 0.38809925  , (canonicalRandom): 0.3857422
+x: 0.26594895 , y: 0.7295663  , (canonicalRandom): 0.265625
+x: 0.25530386 , y: 0.44868118  , (canonicalRandom): 0.796875
+x: 0.7932986 , y: 0.6846127  , (canonicalRandom): 0.57421875
+x: 2.438426E-4 , y: 0.89594615  , (canonicalRandom): 0.015625
+x: 0.06039852 , y: 0.6798752  , (canonicalRandom): 0.9140625
+x: 0.22471154 , y: 0.025663972  , (canonicalRandom): 0.765625
+x: 0.2333628 , y: 0.16260707  , (valueNoise): 0.13890915
+x: 0.22917902 , y: 0.92124665  , (valueNoise): 0.2529458
+x: 0.63357013 , y: 0.49235833  , (valueNoise): 0.6069697
+x: 0.075602114 , y: 0.41054136  , (valueNoise): 0.0803319
+x: 0.8612178 , y: 0.8539941  , (valueNoise): 0.70362055
+x: 0.45726705 , y: 0.6167391  , (valueNoise): 0.4152667
+x: 0.89678055 , y: 0.9593631  , (valueNoise): 0.7052513
+x: 0.7812521 , y: 0.4821663  , (valueNoise): 0.74478185
+x: 0.66304606 , y: 0.44980276  , (valueNoise): 0.64421374
+x: 0.27923608 , y: 0.73786056  , (valueNoise): 0.26762778
+x: 0.47668874 , y: 0.782197  , (morganMcguireNoise): 0.4337202
+x: 0.8329053 , y: 0.7622493  , (morganMcguireNoise): 0.7075379
+x: 0.7480978 , y: 0.5426715  , (morganMcguireNoise): 0.7037246
+x: 0.9902223 , y: 0.8113308  , (morganMcguireNoise): 0.7407008
+x: 0.67111295 , y: 0.28440297  , (morganMcguireNoise): 0.6795702
+x: 0.17961508 , y: 0.231013  , (morganMcguireNoise): 0.10039926
+x: 0.21579778 , y: 0.7827601  , (morganMcguireNoise): 0.23141076
+x: 0.11264104 , y: 0.57832235  , (morganMcguireNoise): 0.1375466
+x: 0.7483699 , y: 0.8985302  , (morganMcguireNoise): 0.6399088
+x: 0.65440804 , y: 0.50881785  , (morganMcguireNoise): 0.6255779
+x: 0.069514394 , y: 0.3478831  , (perlinNoise): 0.083501115
+x: 0.27816916 , y: 0.8376148  , (perlinNoise): -0.2793662
+x: 0.617754 , y: 0.6086819  , (perlinNoise): 0.08587313
+x: 0.48982698 , y: 0.18394113  , (perlinNoise): 0.48424035
+x: 0.32619137 , y: 0.9125878  , (perlinNoise): -0.34288722
+x: 0.08400977 , y: 0.97526115  , (perlinNoise): -0.08908659
+x: 0.9622528 , y: 0.9500675  , (perlinNoise): 0.009765148
+x: 0.69095033 , y: 0.55594945  , (perlinNoise): 0.2208316
+x: 0.30014455 , y: 0.17296928  , (perlinNoise): 0.3581646
+x: 0.09827405 , y: 0.53468055  , (perlinNoise): 0.012878701
+x: 0.76931876 , y: 0.7419803  , (fbmFilteredPerlinNoise): 0.15390073
+x: 0.23027343 , y: 0.95961183  , (fbmFilteredPerlinNoise): -0.20981048
+x: 0.14967644 , y: 0.51233655  , (fbmFilteredPerlinNoise): -0.0985842
+x: 0.2762304 , y: 0.15472007  , (fbmFilteredPerlinNoise): 0.34704483
+x: 0.8214962 , y: 0.46206927  , (fbmFilteredPerlinNoise): 0.28952104
+x: 0.25637734 , y: 0.13605845  , (fbmFilteredPerlinNoise): 0.33556148
+x: 0.16676491 , y: 0.5774139  , (fbmFilteredPerlinNoise): -0.14893389
+x: 0.6673332 , y: 0.08311653  , (fbmFilteredPerlinNoise): 0.19474235
+x: 0.11592853 , y: 0.057466865  , (fbmFilteredPerlinNoise): 0.23098904
+x: 0.76709896 , y: 0.82589895  , (fbmFilteredPerlinNoise): 0.061071906
+x: 0.9629317 , y: 0.3755811  , (brokenPerlinNoise false): 0.7540108
+x: 0.44235903 , y: 0.25891614  , (brokenPerlinNoise false): 0.5436003
+x: 0.37024552 , y: 0.03228104  , (brokenPerlinNoise false): 0.45953792
+x: 0.48795575 , y: 0.87327063  , (brokenPerlinNoise false): 0.06612119
+x: 0.65849924 , y: 7.264614E-4  , (brokenPerlinNoise false): 0.41095603
+x: 0.95064217 , y: 0.6497979  , (brokenPerlinNoise false): 0.67285943
+x: 0.74206024 , y: 0.8511551  , (brokenPerlinNoise false): 0.25155106
+x: 0.017867029 , y: 0.6502952  , (brokenPerlinNoise false): 0.5687584
+x: 0.41779572 , y: 0.24860936  , (brokenPerlinNoise false): 0.54655606
+x: 0.7293142 , y: 0.12887603  , (brokenPerlinNoise false): 0.52773494
+x: 0.6402784 , y: 0.055044055  , (brokenPerlinNoise true): 0.5743171
+x: 0.65675384 , y: 0.53818136  , (brokenPerlinNoise true): 0.90832716
+x: 0.18947011 , y: 0.19219482  , (brokenPerlinNoise true): 0.7165417
+x: 0.12961769 , y: 0.6804405  , (brokenPerlinNoise true): 0.8674128
+x: 0.03865218 , y: 0.998051  , (brokenPerlinNoise true): 0.5401014
+x: 0.7133866 , y: 0.53421694  , (brokenPerlinNoise true): 0.8682045
+x: 0.30892932 , y: 0.25324792  , (brokenPerlinNoise true): 0.7587032
+x: 0.49977762 , y: 0.13522863  , (brokenPerlinNoise true): 0.6182988
+x: 0.015484929 , y: 0.7831135  , (brokenPerlinNoise true): 0.6847496
+x: 0.5068912 , y: 0.7931528  , (brokenPerlinNoise true): 0.015455008

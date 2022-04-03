@@ -51,7 +51,8 @@ public class TelekGDX {
     }
 
     public static void writeWarningsToFile(Array<String> warnings, FileHandle file) {
-        for (String warn : warnings) file.writeString(warn.replaceAll("(?<!\\[)\\[(?!\\[).*?\\]", "") + "\n", true);
+        for (String warn : warnings)
+            file.writeString(warn.replaceAll("(?<!\\[)\\[(?!\\[).*?\\]", "") + "\n", true);
     }
 
 

@@ -1,0 +1,20 @@
+{
+"characters": "",
+"size": 45,
+"hinting": "AutoFull",
+"color": "white",
+"colorValue": -1,
+"gamma": 1.1,
+"renderCount": 2,
+"borderWidth": 1,
+"borderColor": "black",
+"borderColorValue": 255,
+"borderGamma": 1,
+"shadowOffsetX": 2,
+"shadowOffsetY": 2,
+"shadowColor": "black",
+"shadowColorValue": 255,
+"kerning": true,
+"minFilter": "Linear",
+"magFilter": "Linear"
+}

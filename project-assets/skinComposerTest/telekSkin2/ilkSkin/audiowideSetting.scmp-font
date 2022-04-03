@@ -1,0 +1,20 @@
+{
+"characters": "",
+"size": 45,
+"hinting": "AutoMedium",
+"color": "white",
+"colorValue": -1,
+"gamma": 1.1,
+"renderCount": 2,
+"borderWidth": 1,
+"borderColor": "white",
+"borderColorValue": -1,
+"borderGamma": 1,
+"shadowOffsetX": 1,
+"shadowOffsetY": 1,
+"shadowColor": "white",
+"shadowColorValue": -1,
+"kerning": true,
+"minFilter": "Linear",
+"magFilter": "Linear"
+}

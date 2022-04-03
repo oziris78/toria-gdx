@@ -1,0 +1,119 @@
+
+telek-skin.png
+size: 1024, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+white-pixel
+  rotate: false
+  xy: 1007, 1005
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+5zdzFcBcrbnYLs3CUyho0BvuJ4CTHVI3T-zQxAcC8ZQ7lZhdCTkbTceXPumth_RWuMoRH1tvHgDS-bAW5Vh17fGGuKMD9BFvaQlqkGP88mbrby2JRgkNlmZYjbL8-E1w
+  rotate: false
+  xy: 1, 576
+  size: 500, 430
+  orig: 500, 430
+  offset: 0, 0
+  index: -1
+button_background
+  rotate: false
+  xy: 503, 756
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+button_focused
+  rotate: false
+  xy: 755, 756
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+button_over
+  rotate: false
+  xy: 1, 72
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+button_up
+  rotate: false
+  xy: 1, 324
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+checkbox_down
+  rotate: false
+  xy: 503, 688
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+checkbox_off
+  rotate: false
+  xy: 1, 38
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+checkbox_on
+  rotate: false
+  xy: 503, 722
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+checkbox_on_over
+  rotate: false
+  xy: 253, 520
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+checkbox_over
+  rotate: false
+  xy: 537, 722
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+checkbox_up
+  rotate: false
+  xy: 1, 4
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+knob
+  rotate: false
+  xy: 35, 38
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+knob_down
+  rotate: false
+  xy: 253, 486
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+knob_over
+  rotate: false
+  xy: 503, 654
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+label_background
+  rotate: false
+  xy: 253, 554
+  size: 50, 20
+  split: 2, 2, 2, 2
+  orig: 50, 20
+  offset: 0, 0
+  index: -1

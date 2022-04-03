@@ -1,0 +1,123 @@
+
+telek-skin.png
+size: 256, 256
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+white-pixel
+  rotate: false
+  xy: 119, 124
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+checkboxOff
+  rotate: false
+  xy: 1, 123
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+checkboxOffOver
+  rotate: false
+  xy: 1, 189
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+checkboxOn
+  rotate: false
+  xy: 67, 189
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+checkboxOnOver
+  rotate: false
+  xy: 1, 57
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+knob
+  rotate: false
+  xy: 67, 61
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+knowDown
+  rotate: false
+  xy: 89, 61
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+knowOver
+  rotate: false
+  xy: 53, 35
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+label_background
+  rotate: false
+  xy: 1, 35
+  size: 50, 20
+  split: 2, 2, 0, 0
+  pad: 7, 7, 4, 4
+  orig: 50, 20
+  offset: 0, 0
+  index: -1
+textbutton_down
+  rotate: false
+  xy: 1, 13
+  size: 50, 20
+  split: 17, 17, 8, 8
+  orig: 50, 20
+  offset: 0, 0
+  index: -1
+textbutton_over
+  rotate: false
+  xy: 67, 83
+  size: 50, 20
+  split: 17, 17, 8, 8
+  orig: 50, 20
+  offset: 0, 0
+  index: -1
+textbutton_up
+  rotate: false
+  xy: 67, 105
+  size: 50, 20
+  split: 17, 17, 8, 8
+  orig: 50, 20
+  offset: 0, 0
+  index: -1
+vScroll
+  rotate: false
+  xy: 129, 137
+  size: 20, 50
+  orig: 20, 50
+  offset: 0, 0
+  index: -1
+SWAGGY
+  rotate: false
+  xy: 133, 193
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+Tom
+  rotate: false
+  xy: 195, 193
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+napim
+  rotate: false
+  xy: 67, 127
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1

@@ -6,11 +6,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.telek.telekgdx.screens.ScreenSorter;
 
 
-public class ScreenSorterGame extends Game {
+public class ScreenSorterTest extends Game {
 
     SpriteBatch batch;
     BitmapFont font;
-    ScreenSorter<ScreenSorterGame> screenSorter;
+    ScreenSorter<ScreenSorterTest> screenSorter;
 
     @Override
     public void create() {
