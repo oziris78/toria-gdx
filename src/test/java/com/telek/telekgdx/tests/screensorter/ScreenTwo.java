@@ -27,7 +27,8 @@ public class ScreenTwo implements TScreen {
     @Override
     public void update(float delta) {
         if(Gdx.input.isKeyJustPressed(Input.Keys.K)){
-            this.game.setScreen(this.game.screenSorter.getScreen("screenOne"));
+            this.game.screenSorter.nullifyScreen(MyScreens.SCREEN_THREE);
+            this.game.setScreen(this.game.screenSorter.getScreen(MyScreens.SCREEN_THREE, game, 152));
         }
     }
 

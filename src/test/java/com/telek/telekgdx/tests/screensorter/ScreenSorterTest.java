@@ -10,19 +10,19 @@ public class ScreenSorterTest extends Game {
 
     SpriteBatch batch;
     BitmapFont font;
-    ScreenSorter<ScreenSorterTest> screenSorter;
+    ScreenSorter screenSorter;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         font = new BitmapFont();
 
-        screenSorter = new ScreenSorter<>(this);
-        screenSorter.putScreen("screenOne", ScreenOne.class);
-        screenSorter.putScreen("screenTwo", ScreenTwo.class);
+        screenSorter = new ScreenSorter();
+        screenSorter.putScreen(MyScreens.SCREEN_ONE, ScreenOne.class, ScreenSorterTest.class);
+        screenSorter.putScreen(MyScreens.SCREEN_TWO, ScreenTwo.class, ScreenSorterTest.class);
+        screenSorter.putScreen(MyScreens.SCREEN_THREE, ScreenThree.class, ScreenSorterTest.class, int.class);
 
-        this.setScreen(screenSorter.getScreen("screenOne"));
-
+        this.setScreen(screenSorter.getScreen(MyScreens.SCREEN_ONE, this));
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ScreenSorterTest extends Game {
     @Override
     public void dispose() {
         super.dispose();
-        screenSorter.dispose();
+        screenSorter.disposeAll();
         font.dispose();
         batch.dispose();
     }

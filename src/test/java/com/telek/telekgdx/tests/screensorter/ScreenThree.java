@@ -7,26 +7,28 @@ import com.telek.telekgdx.screens.TScreenUtils;
 
 import java.util.Objects;
 
-public class ScreenOne implements TScreen {
+public class ScreenThree implements TScreen {
 
     private final ScreenSorterTest game;
+    int x;
 
-    public ScreenOne(final ScreenSorterTest game){
+    public ScreenThree(final ScreenSorterTest game, int x){
         this.game = game;
-        System.out.println("constructor of screen one");
+        this.x = x;
+        System.out.println("constructor of screen three");
     }
 
 
     @Override
     public void configure() {
-        System.out.println("config of screen one");
+        System.out.println("config of screen three");
     }
 
 
     @Override
     public void update(float delta) {
         if(Gdx.input.isKeyJustPressed(Input.Keys.K)){
-            this.game.setScreen(this.game.screenSorter.getScreen(MyScreens.SCREEN_TWO, game));
+            this.game.setScreen(this.game.screenSorter.getScreen(MyScreens.SCREEN_ONE, game));
         }
     }
 
@@ -34,10 +36,10 @@ public class ScreenOne implements TScreen {
     @Override
     public void render(float delta) {
         update(delta);
-        TScreenUtils.clearScreen(0.1f, 0.1f, 0.1f, 1f);
+        TScreenUtils.clearScreen(0f, 0f, 0.25f, 1f);
 
         this.game.batch.begin();
-        this.game.font.draw(this.game.batch, "hi from screen ONE press K to change screens", 100f, 100f);
+        this.game.font.draw(this.game.batch, "hi from screen THREE press K to change screens", 100f, 100f);
         this.game.batch.end();
     }
 
@@ -54,7 +56,7 @@ public class ScreenOne implements TScreen {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ScreenOne screenOne = (ScreenOne) o;
+        ScreenThree screenOne = (ScreenThree) o;
         return Objects.equals(game, screenOne.game);
     }
 

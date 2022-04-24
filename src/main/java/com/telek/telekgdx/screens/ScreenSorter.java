@@ -1,9 +1,10 @@
 package com.telek.telekgdx.screens;
 
 
-import com.badlogic.gdx.Game;
+import com.telek.telekgdx.utils.TelekGDXExceptions.ThisLineIsNeverExecutedException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.Map;
 
 
 
@@ -20,112 +21,106 @@ import java.util.HashMap;
  * You can also use update(dt) as your update method in each screen, this is a very common method
  * to have in every screen so {@link TScreen} automaticly defines this method for you! <br> <br>
  *
- * @param <TGAME> a type that extends the {@link Game}
+ * If you don't want to use the configure() method and just dispose the screen and initialize a new
+ * one, you can do that with a collection of {@link #nullifyScreen(String)} and {@link #getScreen(String, Object...)}
+ * methods. <br> <br>
+ *
  */
-public class ScreenSorter<TGAME extends Game> {
+public class ScreenSorter {
 
-    private class TTScreen<TYPESCREEN> {
-        private final Class<TYPESCREEN> type;
-        private final TScreen screen;
-
-        private TTScreen(Class<TYPESCREEN> type, TScreen screen) {
-            this.type = type; this.screen = screen;
-        }
-
-        private TScreen getScreen() { return screen; }
-        private Class<TYPESCREEN> getType() { return type; }
-    }
-
-
-    private HashMap<String, TTScreen> screens;
-    private final TGAME game;
-
-
+    ////////////////////
     /*  CONSTRUCTORS  */
+    ////////////////////
 
-    public ScreenSorter(TGAME game) {
-        this.game = game;
-        this.screens = new HashMap<>();
+    private final HashMap<String, ScreenBag> bags;
+
+    public ScreenSorter(){
+        this.bags = new HashMap<>();
     }
 
 
+    ///////////////
     /*  METHODS  */
+    ///////////////
+
 
     /**
-     * Puts an existing screen to the screensorter
-     * @param key any string
-     * @param screen an existing screen
-     * @param classOfScreen class of this screen
-     * @param <T> any class that extends {@link TScreen}
+     * Defines a screen with the specified key. <br>
+     * The screen will be initialized as null and it will be automaticly created for you
+     * with the constructor you specify later on.
+     *
+     * @param key a string to use as a key, it's recommended to
+     *            define a "constants class" for your screen keys so that you
+     *            won't need to write them every single time you need them
+     * @param screenClass the class of the screen that implements {@link TScreen}
+     * @param constructorParameterTypes the parameter types to determine the constructor
+     * @param <T> the screen class
      */
-    public <T extends TScreen> void putScreen(String key, TScreen screen, Class<T> classOfScreen) {
-        this.screens.put(key, new TTScreen(classOfScreen, screen));
+    public <T extends TScreen> void putScreen(String key, Class<T> screenClass, Class<?>... constructorParameterTypes){
+        try{
+            this.bags.put(key, new ScreenBag<T>(screenClass, screenClass.getConstructor(constructorParameterTypes)));
+        }
+        catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
 
 
-
     /**
-     * Puts a null screen with the specified class to be created once and returned using the screensorter
-     * @param key any string
-     * @param classOfScreen class of this screen
-     * @param <T> any class that extends {@link TScreen}
+     * Disposes and nullifies the screenBag of the specified key. <br> <br>
+     * Use this if you want to dispose a screen and create a new one automaticly
+     * instead of using the {@link TScreen#configure()} method
+     * @param key a screen key
      */
-    public <T extends TScreen> void putScreen(String key, Class<T> classOfScreen) {
-        putScreen(key, null, classOfScreen);
+    public void nullifyScreen(String key){
+        ScreenBag<?> bag = this.bags.get(key);
+        if(bag.screen != null){
+            bag.screen.dispose();
+            bag.screen = null;
+        }
     }
 
 
-
     /**
-     * Gets the screen with the specified key from the screensorter, creates a new screen if the current existing one is null.
-     * It also runs the tScreen.configure() before returning it (allowing you to reset fields, inputs etc. before you get the screen)
-     * @param key a key
-     * @param <T> any class that extends {@link TScreen}
-     * @return The screen with the specified key from the screensorter
+     * Gets the screen with the specified key from the screensorter, creates a new screen
+     * if the current existing one is null. <br> <br>
+     * It also runs the {@link TScreen#configure()} before returning it (allowing you to reset fields,
+     * inputs etc. before you get the screen) <br> <br>
+     * @param key a screen key
+     * @param constructorArgs the arguments that will be used in the constructor if the
+     *                        screen with the specified key is null (it will be constructed automaticly)
+     * @param <T> class of the screen
+     * @return the TScreen object in the correct type (not {@link TScreen} but the actual class of the screen)
      */
-    public <T extends TScreen> T getScreen(String key) {
-        T screen = (T) this.screens.get(key).getScreen();
-        if (screen == null) {
-            try {
-                screen = (T) this.screens.get(key).getType().getConstructor(game.getClass()).newInstance(this.game);
+    public <T extends TScreen> T getScreen(String key, Object... constructorArgs){
+        ScreenBag<T> bag = this.bags.get(key);
+        try{
+            if(bag.screen == null){
+                Object newScreen = bag.constructor.newInstance(constructorArgs);
+                bag.screen = bag.screenClass.cast(newScreen);
             }
-            catch (InstantiationException e) { e.printStackTrace(); }
-            catch (InvocationTargetException e) { e.printStackTrace(); }
-            catch (NoSuchMethodException e) { e.printStackTrace(); }
-            catch (IllegalAccessException e) { e.printStackTrace(); }
+            bag.screen.configure();
+            return bag.screen;
         }
-        screen.configure();
-        return screen;
+        catch (InvocationTargetException e) {e.printStackTrace();}
+        catch (InstantiationException e) {e.printStackTrace();}
+        catch (IllegalAccessException e) {e.printStackTrace();}
+        throw new ThisLineIsNeverExecutedException();
     }
-
 
 
     /**
-     * Disposes the screen found by the specified key
-     * @param key a key
+     * Disposes the screenSorter (by disposing every single screen inside it)
      */
-    public void disposeScreen(String key) {
-        if(disposeTheGivenScreen(this.screens.get(key).getScreen()))
-            this.screens.remove(key);
-    }
-
-
-    /** Disposes all of the screens that are inside the screensorter */
-    public void dispose() {
-        for (TTScreen screen : this.screens.values()) disposeTheGivenScreen(screen.getScreen());
-    }
-
-
-
-    /*  HELPERS  */
-
-    private boolean disposeTheGivenScreen(TScreen screen){
-        if(screen != null) {
-            screen.dispose();
-            return true;
+    public void disposeAll(){
+        for(Map.Entry<String, ScreenBag> entry : this.bags.entrySet()){
+            if(entry.getValue().screen != null){
+                entry.getValue().screen.dispose();
+            }
+            this.bags.remove(entry.getKey());
         }
-        else return false;
     }
+
 
 
 }
