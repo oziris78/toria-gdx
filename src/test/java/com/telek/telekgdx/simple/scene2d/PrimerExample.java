@@ -89,13 +89,8 @@ public class PrimerExample extends ApplicationAdapter {
 
     @Override
     public void render() {
-        super.render();
-        float deltaTime = Gdx.graphics.getDeltaTime();
-        update(deltaTime);
-
+        update(Gdx.graphics.getDeltaTime());
         TScreenUtils.clearScreen();
-        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.gl20.glClearColor(0,0,0,1);
 
         stage.draw();
     }
