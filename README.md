@@ -45,6 +45,7 @@ dependencies {
 ## Projects Using TelekGDX
 
 - <a href="https://github.com/oziris78/the2048">A simple 2048 recreation in libgdx </a>
+- <a href="https://github.com/oziris78/gdx-challenges">GDX Challenges </a>
 
 
 <br>
