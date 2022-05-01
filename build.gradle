@@ -1,6 +1,8 @@
 
 
 
+def projectName = 'telek-gdx'
+
 apply plugin: 'java-library'
 apply plugin: 'maven'
 
@@ -8,8 +10,6 @@ apply plugin: 'maven'
 group 'com.github.oziris78'
 version '0.0.10'
 
-
-def projectName = 'telek-gdx'
 
 sourceCompatibility = 1.8 // java 8
 targetCompatibility = 1.8
