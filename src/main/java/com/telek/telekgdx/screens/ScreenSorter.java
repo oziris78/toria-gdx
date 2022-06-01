@@ -1,7 +1,7 @@
 package com.telek.telekgdx.screens;
 
 
-import com.telek.telekgdx.utils.TelekGDXExceptions.ThisLineIsNeverExecutedException;
+import com.telek.telekgdx.utils.TelekGDXException.ThisLineIsNeverExecutedException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;

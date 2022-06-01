@@ -1,9 +1,9 @@
 package com.telek.telekgdx.utils;
 
 
-public class TelekGDXExceptions extends RuntimeException{
+public class TelekGDXException extends RuntimeException{
 
-    public TelekGDXExceptions(String message) {
+    public TelekGDXException(String message) {
         super(message);
     }
 
