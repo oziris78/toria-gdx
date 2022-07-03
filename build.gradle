@@ -1,14 +1,14 @@
 
 
 
-def projectName = 'telek-gdx'
+def projectName = 'toria-gdx'
 
 apply plugin: 'java-library'
 apply plugin: 'maven'
 
 
 group 'com.github.oziris78'
-version '0.0.10'
+version '0.1.0'
 
 
 sourceCompatibility = 1.8 // java 8
@@ -28,21 +28,19 @@ def aiVersion = '1.8.2'
 
 
 dependencies {
-    ///////////////////////////////// TELEK-GDX /////////////////////////////////
+    ///////////////////////////////// TORIA-GDX /////////////////////////////////
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 
     ///////////////////////////////// TESTS /////////////////////////////////
-    // core libraries for desktop
+    // core libraries for desktop stuff
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 
-    // my libraries
-    testImplementation 'com.github.oziris78:telek-math:v0.8.2'
 }
 
 
